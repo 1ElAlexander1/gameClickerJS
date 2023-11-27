@@ -19,6 +19,7 @@ table{
     border-collapse: collapse;
     width: 200px;
     height: 60px;
+    user-select: none;
 }
 h1{
   user-select: none;  
@@ -30,11 +31,6 @@ ul{
     user-select: none;
     margin-top: -15px;
     text-decoration: none;
-    
-    
-    
-    
-    
 }
 li{
     user-select: none;
@@ -43,9 +39,16 @@ li{
     /* 27.7% макс-ширины четко */
     text-decoration: none;
 }
-    li:active {
+/* li:active {
         transform: scale(0.9); 
-    }
+} */
+
+.liInformationFirst:active{
+    transform: scale(0.9);
+}
+.liInformationTwo:active{
+    transform: scale(0.9);
+}   
   /* Уменьшаем размер элемента на 10% */
 /* ----------------------------------------------------------- */
 
@@ -95,7 +98,7 @@ li{
 /*! Настройка первого блока в main */
 .main__Block__First{
     text-align: center;
-    
+    display: flex;
 }
 /*! Настройка таблицы */
 .tableSchetExpMoney{
@@ -120,6 +123,9 @@ li{
     cursor: pointer;
     user-select: none;
     
+}
+.attack__Img__Rock__LvlFirst:active{
+    transform: scale(0.98); 
 }
 
 /*! Настройка второй таблицы с характеристикой */
@@ -147,6 +153,10 @@ li{
     height: 6%;
 }
 .informationBlockTwo{
+    display: inline-block;
+    margin-top: 0.5%;
+    padding-bottom: 2%;
+
 
     color: white;
     user-select: none;
@@ -155,13 +165,27 @@ li{
     list-style-type: none;
 }
 .containerSavePriceLiElementStyle{
+    
     color: white;
     list-style-type:none;
     margin-left: -180px;
+    padding-top: 1%;
 }
-/* .liInformationFirst{
-    border: solid  red  ;
-} */
+.liInformationFirst{
+    text-align: match-justify;
+    border: solid white;
+    border-radius: 10%;
+    margin-top: 5%;
+}
+.liInformationTwo {
+    border: solid white;
+    border-radius: 10%;
+    margin-top: 5%;
+
+}
+.liContainerPriceStyle{
+    padding-bottom: 20px;
+}
 
 
 
