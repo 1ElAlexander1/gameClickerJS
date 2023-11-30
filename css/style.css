@@ -34,7 +34,7 @@ ul{
 }
 li{
     user-select: none;
-    padding-top: 10px;
+    padding-top: 5px;
     max-width: 27.7%;
     /* 27.7% макс-ширины четко */
     text-decoration: none;
@@ -49,13 +49,12 @@ li{
 .liInformationTwo:active{
     transform: scale(0.9);
 }   
-  /* Уменьшаем размер элемента на 10% */
+.liInformationThree:active{
+    transform: scale(0.9);
+}
+/* Уменьшаем размер элемента на 10% */
 /* ----------------------------------------------------------- */
-
-
 /*? --------------------------------------------------------------------------------------------------------------------------------- */
-
-
 /* ----------------------------------------------------------- */
 /*! Настройка header блока */
 .header__nav{
@@ -81,18 +80,11 @@ li{
     /* padding-left: 5%; */
 }
 /* ----------------------------------------------------------- */
-
-
-
 /*? --------------------------------------------------------------------------------------------------------------------------------- */
-
-
-
 /* ----------------------------------------------------------- */
 /*! Настройка main блока */
 .main__nav{
     padding-top: 9%;
-    
 }
 /* ----------------------------------------------------------- */
 /*! Настройка первого блока в main */
@@ -109,20 +101,15 @@ li{
 }
 /*! Настройка камня картинки */
 .attack__Img__Rock__LvlFirst{
-    
     background-color: white;
-
     width: 18%;
     height: 18%;
     margin-top: -3%;
     margin-left: 20%;
-    
     border-radius: 40%;
     /* border: 3px solid green; */
-
     cursor: pointer;
     user-select: none;
-    
 }
 .attack__Img__Rock__LvlFirst:active{
     transform: scale(0.98); 
@@ -132,7 +119,6 @@ li{
 .tableSchetCharacteristic   {
     width: auto;
     margin-top: 3.5%;
-    
 }
 /* ----------------------------------------------------------- */
 /*! Настройка второго блока */
@@ -149,44 +135,46 @@ li{
 }
 .imgCursor{
     border-radius: 50%;
-    width: 6%;
+    width: 4%;
     height: 6%;
 }
 .informationBlockTwo{
     display: inline-block;
     margin-top: 0.5%;
     padding-bottom: 2%;
-
-
     color: white;
     user-select: none;
     padding-left: 1%;
-    width: 19%;
+    width: 34%;
+    height: 20vw;
     list-style-type: none;
 }
 .containerSavePriceLiElementStyle{
-    
+    width: 17vw;
     color: white;
     list-style-type:none;
-    margin-left: -180px;
-    padding-top: 1%;
+    margin-left: -20vw;
+    padding-top: 2.5vw;
 }
 .liInformationFirst{
     text-align: match-justify;
     border: solid white;
     border-radius: 10%;
-    margin-top: 5%;
+    margin-top: 1.8vw;
 }
 .liInformationTwo {
+    
     border: solid white;
     border-radius: 10%;
-    margin-top: 5%;
+    margin-top: 10%;
 
+}
+.liInformationThree{
+    border: solid white;
+    border-radius: 10%;
+    margin-top: 10%;
 }
 .liContainerPriceStyle{
-    padding-bottom: 20px;
+    padding-bottom: 1.7vw;
 }
-
-
-
 /*? --------------------------------------------------------------------------------------------------------------------------------- */
