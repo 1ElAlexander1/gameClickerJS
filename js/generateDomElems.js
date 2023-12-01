@@ -6,6 +6,8 @@ import { buyUpgradeClick } from './updateTableMoneyExp.js';
 import { buyUpgradeClickLvlTen } from './updateTableMoneyExp.js';
 // Импорт функции на кнопку +100 клик
 import { buyUpgradeClickLvlOneHundred } from './updateTableMoneyExp.js';
+// Импорт функции очистки магазина и создания разметки под рабочих
+import { clearMainBlockTwo } from './openPanelWorkGuys.js'
 
 
 
@@ -124,9 +126,9 @@ export function generateDomElements(){
     information.setAttribute("class", "informationBlockTwo")
     
     information.textContent = "Улучшение клика: "
-    div__BlockTwo.append(information, imgCursor)
+    div__BlockTwo.append(information)
     information.append(imgCursor)
-    
+//! ----------------------------------------------------- 
     // Улучшения клика  +1
     let liInformation = document.createElement("li")
     liInformation.setAttribute("class", "liInformationFirst")
@@ -137,7 +139,7 @@ export function generateDomElements(){
     //Реализация покупки клика +1 кнопка
     let liInformationEventFirst = document.querySelector(".liInformationFirst")
     liInformationEventFirst.addEventListener("click", () => buyUpgradeClick())  
-
+//! -----------------------------------------------------
     // Улучшения клика  +10
     let liInformationTwo = document.createElement("li")
     liInformationTwo.setAttribute("class", "liInformationTwo")
@@ -158,14 +160,6 @@ export function generateDomElements(){
 
     let liInformationEventThree = document.querySelector(".liInformationThree")
     liInformationEventThree.addEventListener("click", () => buyUpgradeClickLvlOneHundred())
-    
-//TODO -----------------------------------------------------
-
-    // Улучшение клика на максимальную сумму денег
-    // let liInformationEventFour = document.querySelector(".liInformationThree")
-    // liInformationEventThree.addEventListener("click", () => buyUpgradeClickLvlOneHundred())
-
-
 //! -----------------------------------------------------
     // Создаем блок (контейнер) под цену наших услуг по усилинею клика
     let containerSavePriceLiElement = document.createElement("container")
@@ -191,4 +185,28 @@ export function generateDomElements(){
     containerSavePriceLiElement.append(liContainerPriceOne)
     containerSavePriceLiElement.append(liContainerPriceTwo)
     containerSavePriceLiElement.append(liContainerPriceThree)
+//! -----------------------------------------------------
+    // Создание нового блока для рабочих
+    let containerWorkGuys = document.createElement("div")
+    containerWorkGuys.setAttribute("class", "containerWorkGuysClass")
+    // Создание Заголовка для магазина рабочих
+    containerWorkGuys.textContent = "Покупка рабочих: "
+
+    // Добавление картинки для заголовка
+    let imgWorkGuy = document.createElement("img")
+    imgWorkGuy.setAttribute("src", "./img/workGuy.png")
+    imgWorkGuy.setAttribute("class", "imgWorkGuyClass")
+
+    // Создание ли элемента что эта кнопка.  (РАБОЧИЕ)
+    let liButtonWorkGuys = document.createElement("li")
+    liButtonWorkGuys.setAttribute("class", "liButtonWorkGuysClass")
+    liButtonWorkGuys.textContent = "Рабочие"
+
+    // Append 
+    div__BlockTwo.append(containerWorkGuys) //Отпраляем контейнер в главный отцовский элемент
+    containerWorkGuys.append(imgWorkGuy) // Отправили картинку в этот блок
+    containerWorkGuys.append(liButtonWorkGuys) // Отправляем кнопку рабочих в контейнер
+//! -----------------------------------------------------
+    // Реализация открытия (покупки) рабочих
+    liButtonWorkGuys.addEventListener("click", () => clearMainBlockTwo())
 }

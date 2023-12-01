@@ -134,6 +134,7 @@ li{
     background-size: cover; */
 }
 .imgCursor{
+    pointer-events: none;
     border-radius: 50%;
     width: 4%;
     height: 6%;
@@ -177,4 +178,40 @@ li{
 .liContainerPriceStyle{
     padding-bottom: 1.7vw;
 }
+
+/*! Третий блок для рабочих */
+.containerWorkGuysClass{
+    /* text-decoration: none; */
+    display: inline-block;
+    margin-top: 0.5%;
+    padding-bottom: 2%;
+    color: white;
+    user-select: none;
+    padding-left: 1%;
+    width: 34%;
+    height: 20vw;
+    list-style-type: none;
+    
+}
+/* Картинка для украшения заголовка Покупка рабочих */
+.imgWorkGuyClass{
+    pointer-events: none;
+    border-radius: 50%;
+    width: 4%;
+    height: 6%;
+}
+/* Кнопка рабочие */
+.liButtonWorkGuysClass{
+    padding-top: 6.5vw;
+    color: white;
+    font-size: 2em;
+    list-style-type: none;
+}
+.liButtonWorkGuysClass:active{
+    transform: scale(0.95);  
+    transition: 5s;
+    /* Настроить время */
+
+}
+
 /*? --------------------------------------------------------------------------------------------------------------------------------- */

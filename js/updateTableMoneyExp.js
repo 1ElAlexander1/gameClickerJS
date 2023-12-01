@@ -3,7 +3,7 @@ import {abbreviateNumber, abbreviateScoreBoard, abbreviatePowerClick, abbreviate
 
 let MoneyValue = 0; // Наши стартовые деньги
 let Experience = 0; // Наш опыт заработанный
-let PowerClick = 10000000; // Сила нашего клика
+let PowerClick = 1; // Сила нашего клика
 let PowerWorksGuys = 0 // Сила наших работяг
 
 // Сумма покупки клика
@@ -49,7 +49,7 @@ export function buyUpgradeClick(){
         PriceClick__lvlFirst += 10 + (PowerClick)
         
         //Обновление таблички
-        let liPriceFirst = document.querySelector(".lipFirst")
+        let liPriceFirst = document.querySelector(".lipFirst")  
         liPriceFirst.textContent  = `Цена: ${abbreviatePriceFirst(PriceClick__lvlFirst) + "$"}`
     }
 }
