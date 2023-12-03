@@ -1,0 +1,55 @@
+p{
+    color: white;
+    font-size: 2em;
+    padding-left: 0.1vw;
+}
+.pTextFirst{
+    margin-top: 6.05vw;
+}
+.pTextTwo{
+    padding-top: -1.5vw;
+    margin-bottom: 6.05vw;
+}
+
+/* Главный контейнер на странице */
+.containerNavWorkGuys{  
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    padding-top: 1%;
+    background-color: #171d25
+    /* background-image: url(rock.png); */
+
+}
+/* Второй блок  */
+.blockTwoWorkersBuyStyle{
+    padding-left: 2vw;
+}
+.tableWorkersFirstStyle{
+    margin-top: -3.5vw;
+}
+/* Настройка tr  */
+.tableTrFirstStyle{
+    background-color: #171d25;
+}
+/* Настройка td */
+.tdElements{
+    margin-top: -10px;
+    padding-left: 0.2vw;
+    padding-right: 2vw;
+    padding-top: 2.5vw;
+    color: white;
+    border: none;
+    user-select: none;
+}
+.tdButton:active{
+    transform: scale(0.9);
+}
+/* Стиль для заголовка */
+.zaglavie{
+    font-size: 1.2vw;
+}
+/* Кнопка назад */
+.exitTextStyle:active{
+    transform: scale(0.9);
+}

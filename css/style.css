@@ -5,21 +5,9 @@ body{
     padding: 0;
     font-size: 17px;
     font: italic small-caps bold 16px/2 cursive;
-    
-}
-tr{
-    background-color: rgba(98, 183, 0, 0.326);
-    
 }
 td{
     border: 1px solid black;
-    
-}
-table{
-    border-collapse: collapse;
-    width: 200px;
-    height: 60px;
-    user-select: none;
 }
 h1{
   user-select: none;  
@@ -98,6 +86,16 @@ li{
     height: 10vh; 
     margin-top: -4.5%;
     position: absolute;
+
+    border-collapse: collapse;
+    width: 200px;
+    height: 60px;
+    user-select: none;
+}
+/*! Настрйока tr */
+.tableTrLineTwoStyle{
+    background-color: rgba(98, 183, 0, 0.326);
+
 }
 /*! Настройка камня картинки */
 .attack__Img__Rock__LvlFirst{
@@ -119,6 +117,7 @@ li{
 .tableSchetCharacteristic   {
     width: auto;
     margin-top: 3.5%;
+    border-collapse: collapse;
 }
 /* ----------------------------------------------------------- */
 /*! Настройка второго блока */
@@ -128,10 +127,6 @@ li{
     margin-top: 5%;
     padding-top: 1%;
     background-color: #171d25
-    /* background-image: url('https://images.wallpaperscraft.ru/image/single/pole_doroga_priroda_199427_1280x720.jpg') ;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; */
 }
 .imgCursor{
     pointer-events: none;
@@ -205,11 +200,11 @@ li{
     padding-top: 6.5vw;
     color: white;
     font-size: 2em;
-    list-style-type: none;
+    /* list-style-type: none; */
 }
 .liButtonWorkGuysClass:active{
     transform: scale(0.95);  
-    transition: 5s;
+    
     /* Настроить время */
 
 }
