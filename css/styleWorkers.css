@@ -25,6 +25,7 @@ p{
 .blockTwoWorkersBuyStyle{
     padding-left: 2vw;
 }
+/* Таблица внутри второго блока */
 .tableWorkersFirstStyle{
     margin-top: -3.5vw;
 }
@@ -52,4 +53,16 @@ p{
 /* Кнопка назад */
 .exitTextStyle:active{
     transform: scale(0.9);
+}
+/* Второй блок с рабочими */
+.blockThreeWorkersBuyStyle{
+    padding-left: 5vw;
+}
+/* Таблица внутри третьего блока */
+.tableWorkersTwoStyle{
+    margin-top: -3.5vw
+}
+/* Кнопка назад */
+.exitBlockWorkGuysStyle{
+    padding-left: 2vw;
 }

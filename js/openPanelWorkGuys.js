@@ -1,5 +1,13 @@
 // Импорт функции по возвращению генерации блока
 import {generateElementsTwoBlockDOM} from './generateBlockTwo.js'
+import { buyUpgradeWorkGuys } from './updateTableMoneyExp.js'
+let priceNegritenok = 50;
+let priceRaznorabochiy = 120;
+let priceTSP = 420;
+let kuznec = 1999;
+let miner = 10999;
+let tntMan = 60999;
+
 export function clearMainBlockTwo(){
     //Создаем переменную которая очистит наш второй блок
     let clearBlock = document.querySelector(".main__Block__Two")
@@ -28,29 +36,32 @@ export function clearMainBlockTwo(){
     let blockTwoWorkersBuy = document.createElement("div")
     blockTwoWorkersBuy.setAttribute("class", "blockTwoWorkersBuyStyle")
     containerWorkGuys.append(blockTwoWorkersBuy)
+
     //todo Создаем таблицу где будем хранить рабочих с ценой
     let tableWorkersFirst = document.createElement("table")
     tableWorkersFirst.setAttribute("class", "tableWorkersFirstStyle")
     blockTwoWorkersBuy.append(tableWorkersFirst)
+
     //? Первая линия по таблице <===>
     let tableTrFirst = document.createElement("tr")
     tableTrFirst.setAttribute("class", "tableTrFirstStyle")
     // Чертим таблицу первая линия
     let tableTd__First__left = document.createElement("td")
     tableTd__First__left.setAttribute("class", "tdElements zaglavie")
-    tableTd__First__left.textContent = "Группа 1: "
+    tableTd__First__left.textContent = "Слабые рабочие: "
     let tableTd__First__right = document.createElement("td")
     tableTd__First__right.setAttribute("class","tdElements zaglavie")
     tableTd__First__right.textContent = "Цена: "
     //append таблицы в блок + первой линии в таблицу
     tableWorkersFirst.append(tableTrFirst)
     tableTrFirst.append(tableTd__First__left, tableTd__First__right)
+
     //? Вторая линия таблицы <===>
     let tableTrTwo = document.createElement("tr")
     tableTrTwo.setAttribute("class", "tableTrFirstStyle")
-    // Чертим таблицу вторая линия
+    // Чертим таблицу вторая линия НЕГРИТЕНОК РАБОЧИЙ
     let tableTd__Two__left = document.createElement("td")
-    tableTd__Two__left.setAttribute("class", "tdElements tdButton")
+    tableTd__Two__left.setAttribute("class", "tdElements tdButton negritenok")
     tableTd__Two__left.textContent = "Негритенок‎ ‎ ‎ ‎  +1"
     let tableTd__Two__right = document.createElement("td")
     tableTd__Two__right.setAttribute("class","tdElements")
@@ -58,12 +69,13 @@ export function clearMainBlockTwo(){
     //append таблицы в блок + вторая линия в таблицу
     tableWorkersFirst.append(tableTrTwo)
     tableTrTwo.append(tableTd__Two__left, tableTd__Two__right)
+
     //? Третья линия таблицы <===>
     let tableTrThree = document.createElement("tr")
     tableTrThree.setAttribute("class", "tableTrFirstStyle")
-    // Чертим таблицу третья линия
+    // Чертим таблицу третья линия РАЗНОРАБОЧИЙ РАБОЧИЙ
     let tableTd__Three__left = document.createElement("td")
-    tableTd__Three__left.setAttribute("class", "tdElements tdButton")
+    tableTd__Three__left.setAttribute("class", "tdElements tdButton Raznorabochiy")
     tableTd__Three__left.textContent = "Разнорабочий +3"
     let tableTd__Three__right = document.createElement("td")
     tableTd__Three__right.setAttribute("class","tdElements")
@@ -71,12 +83,13 @@ export function clearMainBlockTwo(){
     //append таблицы в блок + вторая линия в таблицу
     tableWorkersFirst.append(tableTrThree)
     tableTrThree.append(tableTd__Three__left, tableTd__Three__right)
+
     //? Четвертая линия таблицы <===>
     let tableTrFour = document.createElement("tr")
     tableTrFour.setAttribute("class", "tableTrFirstStyle")
-    // Чертим таблицу четвертая линия
+    // Чертим таблицу четвертая линия   TSP РАБОЧИЙ
     let tableTd__Four__left = document.createElement("td")
-    tableTd__Four__left.setAttribute("class", "tdElements tdButton")
+    tableTd__Four__left.setAttribute("class", "tdElements tdButton Tsp")
     tableTd__Four__left.textContent = "TSP ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎      +12"
     let tableTd__Four__right = document.createElement("td")
     tableTd__Four__right.setAttribute("class","tdElements")
@@ -84,10 +97,76 @@ export function clearMainBlockTwo(){
     // append таблицы в блок + вторая линия в таблицу
     tableWorkersFirst.append(tableTrFour)
     tableTrFour.append(tableTd__Four__left, tableTd__Four__right)
-    // Создаем третий блок для хранения рабочих трех (группа 2)
-    //TODO  ДОДЕЛАТЬ ТУТ ЖЕ ПОТОМ ЕЩЕ 3 РАБОЧИХ
+//!--------------------------------------------------------------------
+    //! Создаем третий блок для хранения рабочих трех (группа 2)
+    let blockThreeWorkersBuy = document.createElement("div")
+    blockThreeWorkersBuy.setAttribute("class", "blockThreeWorkersBuyStyle")
+    containerWorkGuys.append(blockThreeWorkersBuy)
+    //☑️
+    //todo Создаем таблицу где будем хранить рабочих с ценой
+    let tableWorkersTwo = document.createElement("table")
+    tableWorkersTwo.setAttribute("class", "tableWorkersTwoStyle")
+    blockThreeWorkersBuy.append(tableWorkersTwo)
+    //☑️
+    //? Первая линия по таблице <===>
+    let tableTrFirst__First = document.createElement("tr")
+    tableTrFirst__First.setAttribute("class", "tableTrFirstStyleFirst")
+    //☑️
+    // Чертим таблицу первая линия
+    let tableTdFirstleft__TableWorkTwo = document.createElement("td")
+    tableTdFirstleft__TableWorkTwo.setAttribute("class", "tdElements zaglavie")
+    tableTdFirstleft__TableWorkTwo.textContent = "Средние рабочие: "
+    let tableTdFirstright__TableWorkTwo = document.createElement("td")
+    tableTdFirstright__TableWorkTwo.setAttribute("class","tdElements zaglavie")
+    tableTdFirstright__TableWorkTwo.textContent = "Цена: "
+    //append таблицы в блок + первой линии в таблицу
+    tableWorkersTwo.append(tableTrFirst__First)
+    tableTrFirst__First.append(tableTdFirstleft__TableWorkTwo, tableTdFirstright__TableWorkTwo)
+    //☑️
+    //? Вторая линия таблицы <===>
+    let tableTrTwo__TableWorkTwo = document.createElement("tr")
+    tableTrTwo__TableWorkTwo.setAttribute("class", "tableTrFirstStyleFirst")
+    // Чертим таблицу вторая линия НЕГРИТЕНОК РАБОЧИЙ
+    let tableTdTwoleft__TableWorkTwo = document.createElement("td")
+    tableTdTwoleft__TableWorkTwo.setAttribute("class", "tdElements tdButton Kuznec")
+    tableTdTwoleft__TableWorkTwo.textContent = "Кузнец ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ +70 "
+    let tableTdTworight__TableWorkTwo = document.createElement("td")
+    tableTdTworight__TableWorkTwo.setAttribute("class","tdElements")
+    tableTdTworight__TableWorkTwo.textContent = "1999 ‎ ‎ $"
+    //append таблицы в блок + вторая линия в таблицу
+    tableWorkersTwo.append(tableTrTwo__TableWorkTwo)
+    tableTrTwo__TableWorkTwo.append(tableTdTwoleft__TableWorkTwo, tableTdTworight__TableWorkTwo)
+    //☑️
+    //? Третья линия таблицы <===>
+    let tableTrThree__TableWorkTwo = document.createElement("tr")
+    tableTrThree__TableWorkTwo.setAttribute("class", "tableTrFirstStyleFirst")
+    // Чертим таблицу третья линия РАЗНОРАБОЧИЙ РАБОЧИЙ
+    let tableTdThreeleft__TableWorkTwo = document.createElement("td")
+    tableTdThreeleft__TableWorkTwo.setAttribute("class", "tdElements tdButton Miner")
+    tableTdThreeleft__TableWorkTwo.textContent = "Шахтер ‎ ‎ ‎ ‎ ‎ ‎ ‎ +390"
+    let tableTdThreeright__TableWorkTwo = document.createElement("td")
+    tableTdThreeright__TableWorkTwo.setAttribute("class","tdElements")
+    tableTdThreeright__TableWorkTwo.textContent = "10999 $"
+    //append таблицы в блок + вторая линия в таблицу
+    tableWorkersTwo.append(tableTrThree__TableWorkTwo)
+    tableTrThree__TableWorkTwo.append(tableTdThreeleft__TableWorkTwo, tableTdThreeright__TableWorkTwo)
+    //☑️
+    //? Четвертая линия таблицы <===>
+    let tableTrFour__TableWorkTwo = document.createElement("tr")
+    tableTrFour__TableWorkTwo.setAttribute("class", "tableTrFirstStyleStyle")
+    // Чертим таблицу четвертая линия   TSP РАБОЧИЙ
+    let tableTdFourleft__TableWorkTwo = document.createElement("td")
+    tableTdFourleft__TableWorkTwo.setAttribute("class", "tdElements tdButton TntMan")
+    tableTdFourleft__TableWorkTwo.textContent = "Тротильщик +2480  ‎ ‎ ‌‎ ‎ ‎"
+    let tableTdFourright__TableWorkTwo = document.createElement("td")
+    tableTdFourright__TableWorkTwo.setAttribute("class","tdElements")
+    tableTdFourright__TableWorkTwo.textContent = "60999 $"
+    // append таблицы в блок + вторая линия в таблицу
+    tableWorkersTwo.append(tableTrFour__TableWorkTwo)
+    tableTrFour__TableWorkTwo.append(tableTdFourleft__TableWorkTwo, tableTdFourright__TableWorkTwo)
+    //!-------------------------------------------------------------------
     // Создаем четвертый блок для хранения рабочих трех (группа 3)
-    //TODO  ДОДЕЛАТЬ ТУТ ЖЕ ПОТОМ ЕЩЕ 3 РАБОЧИХ
+    //TODO  ДОДЕЛАТЬ ТУТ ЖЕ ПОТОМ ЕЩЕ 3 РАБОЧИХ по желанию
     // Создаем пятый блок для выхода
     let exitBlockWorkGuys = document.createElement("div")
     exitBlockWorkGuys.setAttribute("class", "exitBlockWorkGuysStyle")
@@ -110,9 +189,12 @@ export function clearMainBlockTwo(){
         } 
     })
     // Первая кнопка негра
-    tableTd__Two__left.addEventListener("click", () => console.log("Я НЕГР"))
+    tableTd__Two__left.addEventListener("click", () => buyUpgradeWorkGuys(1))
     // Вторая кнопка разнорабочего
-    tableTd__Three__left.addEventListener("click", () => console.log("Я Разнорабочий"))
+    tableTd__Three__left.addEventListener("click", () => buyUpgradeWorkGuys(2))
     // Третья кнопка TSP
-    tableTd__Four__left.addEventListener("click", () => console.log("Я TSP"))
+    tableTd__Four__left.addEventListener("click", () => buyUpgradeWorkGuys(3))
+    tableTdTwoleft__TableWorkTwo.addEventListener("click", () => buyUpgradeWorkGuys(4))
+    tableTdThreeleft__TableWorkTwo.addEventListener("click", () => buyUpgradeWorkGuys(5))
+    tableTdFourleft__TableWorkTwo.addEventListener("click", () => buyUpgradeWorkGuys(6))
 }

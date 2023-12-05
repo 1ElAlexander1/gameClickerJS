@@ -1,17 +1,24 @@
 import {abbreviateNumber, abbreviateScoreBoard, abbreviatePowerClick, abbreviatePriceFirst, abbreviatePriceTwo, abbreviatePriceThree} from './remakeAbbrev.js'
+// Импортировали функции которые сокращают значения наших чисел
 
-
-let MoneyValue = 0; // Наши стартовые деньги
+let MoneyValue = 100000; // Наши стартовые деньги
 let Experience = 0; // Наш опыт заработанный
 let PowerClick = 1; // Сила нашего клика
 let PowerWorksGuys = 0 // Сила наших работяг
 
+let autoMoneyInterval;
 // Сумма покупки клика
 let PriceClick__lvlFirst = 30; // Цена на +1 клик
 let PriceClick__lvlTwo = 240; // Цена на +10 клик
 let PriceClick__lvlThree = 2000; // Цена на +100 клик
 
-
+// Цены рабочих
+let PriceWorkGuysFirst = 50;
+let PriceWorkGuysTwo = 120;
+let PriceWorkGuysThree = 420;
+let PriceWorkGuysFour = 1999;
+let PriceWorkGuysFive = 10999;
+let PriceWorkGuysSix =  60999;
 
 // Функция обновления таблицы счета и денег
 export function updateTableMoneyExperience()  {
@@ -51,9 +58,11 @@ export function buyUpgradeClick(){
         //Обновление таблички
         let liPriceFirst = document.querySelector(".lipFirst")  
         liPriceFirst.textContent  = `Цена: ${abbreviatePriceFirst(PriceClick__lvlFirst) + "$"}`
+
+        
     }
 }
-
+// Функция увеливает значение на +10
 export function buyUpgradeClickLvlTen(){
     if(MoneyValue > 0 && MoneyValue >= PriceClick__lvlTwo) {
         // Получаем TD элементы для их махинаций
@@ -74,6 +83,7 @@ export function buyUpgradeClickLvlTen(){
         liPriceFirst.textContent  = `Цена: ${abbreviatePriceTwo(PriceClick__lvlTwo) + "$"}`
     }
 }
+// Функция увеливает значение на +100
 export function buyUpgradeClickLvlOneHundred(){
     if(MoneyValue > 0 && MoneyValue >= PriceClick__lvlThree) {
         // Получаем TD элементы для их махинаций
@@ -93,4 +103,82 @@ export function buyUpgradeClickLvlOneHundred(){
         let liPriceFirst = document.querySelector(".lipThree")
         liPriceFirst.textContent  = `Цена: ${abbreviatePriceThree(PriceClick__lvlThree) + "$"}`
     }
+}
+// Написать функцию обновление таблицы рабочих
+export function buyUpgradeWorkGuys(target){
+    // let buttonNegritenok = document.querySelector(".negritenok")
+    // let buttonRaznorabochiy = document.querySelector(".Raznorabochiy")
+    // let buttonTSP = document.querySelector(".Tsp")
+    // let buttonKuznec = document.querySelector(".Kuznec")
+    // let buttonMiner = document.querySelector(".Miner")
+    // let buttonTntMan = document.querySelector("TntMan")
+    
+    if(target == 1) { // Негритенок
+        if(MoneyValue >= PriceWorkGuysFirst && MoneyValue > 0) {
+            MoneyValue -= PriceWorkGuysFirst
+            PowerWorksGuys++
+        }
+        
+    }
+    if (target == 2){ // Разнорабочий
+        if(MoneyValue >= PriceWorkGuysTwo && MoneyValue > 0) {
+            MoneyValue -= PriceWorkGuysTwo
+            PowerWorksGuys += 3
+        }
+    }
+    if (target == 3){ // TSPша
+        if(MoneyValue >= PriceWorkGuysThree && MoneyValue > 0) {
+            MoneyValue -= PriceWorkGuysThree
+            PowerWorksGuys += 12
+        }
+    }
+    if (target == 4){ // Кузнец 
+        if(MoneyValue >= PriceWorkGuysFour && MoneyValue > 0) {
+            MoneyValue -= PriceWorkGuysFour
+            PowerWorksGuys += 70
+        }
+    }
+    if (target == 5){ // Шахтер
+        if(MoneyValue >= PriceWorkGuysFive && MoneyValue > 0) {
+            MoneyValue -= PriceWorkGuysFive
+            PowerWorksGuys += 390
+        }
+    }
+    if (target == 6){ // Подрывник (Тротильщик)
+        if(MoneyValue >= PriceWorkGuysSix && MoneyValue > 0) {
+            MoneyValue -= PriceWorkGuysSix
+            PowerWorksGuys += 2480
+        }
+    }
+    // Обновление денег
+    let tableMoneyTd = document.querySelector(".MoneyTd")
+    tableMoneyTd.textContent = MoneyValue
+
+    //Получение таблицы
+    let tableWorkGuys = document.querySelector(".PowerWorkguys")
+    tableWorkGuys.textContent = PowerWorksGuys
+
+    generateAutoMoneyWorkGuys()
+   
+}
+// Реализация функции автоклика
+export function generateAutoMoneyWorkGuys(){
+    if(PowerWorksGuys > 0) {
+        //Получение таблицы
+        let tableWorkGuys = document.querySelector(".PowerWorkguys")
+        let tableMoneyTd = document.querySelector(".MoneyTd")
+        
+        if (autoMoneyInterval) {
+            clearInterval(autoMoneyInterval); // Если интервал уже установлен, останавливаем его
+        }
+
+        autoMoneyInterval = setInterval(function() {
+            MoneyValue += PowerWorksGuys;
+            tableWorkGuys.textContent = PowerWorksGuys;
+            tableMoneyTd.textContent = MoneyValue;
+            // localStorage.setItem('Money', MoneyValue);
+        }, 2000);
+        }
+        
+        
 }
