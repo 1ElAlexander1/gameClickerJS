@@ -3,13 +3,28 @@ import {updateTableMoneyExperience} from './updateTableMoneyExp.js'
 // Импорт функции по генерации второго блока где (магазин + магазин рабочих)
 import {generateElementsTwoBlockDOM} from './generateBlockTwo.js'
 
+let MoneyValueLocalStorage = JSON.parse(localStorage.getItem("MoneyValue"))
+let ExperienceLocalStorage = JSON.parse(localStorage.getItem("Experience"))
+
 //Наша валюта денежная и сила клика + рабочие
 // графическое отображение
-let MoneyValue = 0; // Наши стартовые деньги
-let Experience = 0; // Наш опыт заработанный
+let MoneyValue = MoneyValueLocalStorage; // Наши стартовые деньги
+let Experience = ExperienceLocalStorage; // Наш опыт заработанный
 let PowerClick = 1; // Сила нашего клика
 let PowerWorksGuys = 0 // Сила наших работяг
-   
+
+if(MoneyValue == null) {
+    MoneyValue = 0;
+}
+if(Experience == null) {
+    Experience = 0;
+}
+if(PowerWorksGuys == null) {
+    MoneyValue = 0;
+}
+
+
+
 // Генерация DOM элементов
 export function generateDomElements(){
     let main__Master = document.querySelector(".main__nav")
@@ -92,6 +107,9 @@ export function generateDomElements(){
 
     let rockLvlFirst = document.querySelector(".attack__Img__Rock__LvlFirst");
     rockLvlFirst.addEventListener("click", updateTableMoneyExperience)
+    
+
+    
 //?-----------------------------------------------------------------------------------------------------------------------
 generateElementsTwoBlockDOM()
 }

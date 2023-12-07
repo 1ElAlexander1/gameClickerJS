@@ -64,8 +64,8 @@ export function clearMainBlockTwo(){
     tableTd__Two__left.setAttribute("class", "tdElements tdButton negritenok")
     tableTd__Two__left.textContent = "Негритенок‎ ‎ ‎ ‎  +1"
     let tableTd__Two__right = document.createElement("td")
-    tableTd__Two__right.setAttribute("class","tdElements")
-    tableTd__Two__right.textContent = "50 ‎ ‎ $"
+    tableTd__Two__right.setAttribute("class","tdElements tdPriceFirst")
+    tableTd__Two__right.textContent = `${priceNegritenok} ‎ ‎ $`
     //append таблицы в блок + вторая линия в таблицу
     tableWorkersFirst.append(tableTrTwo)
     tableTrTwo.append(tableTd__Two__left, tableTd__Two__right)
@@ -78,8 +78,8 @@ export function clearMainBlockTwo(){
     tableTd__Three__left.setAttribute("class", "tdElements tdButton Raznorabochiy")
     tableTd__Three__left.textContent = "Разнорабочий +3"
     let tableTd__Three__right = document.createElement("td")
-    tableTd__Three__right.setAttribute("class","tdElements")
-    tableTd__Three__right.textContent = "120 $"
+    tableTd__Three__right.setAttribute("class","tdElements tdPriceTwo")
+    tableTd__Three__right.textContent = `${priceRaznorabochiy} $`
     //append таблицы в блок + вторая линия в таблицу
     tableWorkersFirst.append(tableTrThree)
     tableTrThree.append(tableTd__Three__left, tableTd__Three__right)
@@ -92,8 +92,8 @@ export function clearMainBlockTwo(){
     tableTd__Four__left.setAttribute("class", "tdElements tdButton Tsp")
     tableTd__Four__left.textContent = "TSP ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎      +12"
     let tableTd__Four__right = document.createElement("td")
-    tableTd__Four__right.setAttribute("class","tdElements")
-    tableTd__Four__right.textContent = "420 $"
+    tableTd__Four__right.setAttribute("class","tdElements tdPriceThree")
+    tableTd__Four__right.textContent = `${priceTSP} $`
     // append таблицы в блок + вторая линия в таблицу
     tableWorkersFirst.append(tableTrFour)
     tableTrFour.append(tableTd__Four__left, tableTd__Four__right)
@@ -131,8 +131,8 @@ export function clearMainBlockTwo(){
     tableTdTwoleft__TableWorkTwo.setAttribute("class", "tdElements tdButton Kuznec")
     tableTdTwoleft__TableWorkTwo.textContent = "Кузнец ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ +70 "
     let tableTdTworight__TableWorkTwo = document.createElement("td")
-    tableTdTworight__TableWorkTwo.setAttribute("class","tdElements")
-    tableTdTworight__TableWorkTwo.textContent = "1999 ‎ ‎ $"
+    tableTdTworight__TableWorkTwo.setAttribute("class","tdElements tdPriceFour")
+    tableTdTworight__TableWorkTwo.textContent = `${kuznec} ‎ ‎ $`
     //append таблицы в блок + вторая линия в таблицу
     tableWorkersTwo.append(tableTrTwo__TableWorkTwo)
     tableTrTwo__TableWorkTwo.append(tableTdTwoleft__TableWorkTwo, tableTdTworight__TableWorkTwo)
@@ -145,8 +145,8 @@ export function clearMainBlockTwo(){
     tableTdThreeleft__TableWorkTwo.setAttribute("class", "tdElements tdButton Miner")
     tableTdThreeleft__TableWorkTwo.textContent = "Шахтер ‎ ‎ ‎ ‎ ‎ ‎ ‎ +390"
     let tableTdThreeright__TableWorkTwo = document.createElement("td")
-    tableTdThreeright__TableWorkTwo.setAttribute("class","tdElements")
-    tableTdThreeright__TableWorkTwo.textContent = "10999 $"
+    tableTdThreeright__TableWorkTwo.setAttribute("class","tdElements tdPriceFive")
+    tableTdThreeright__TableWorkTwo.textContent = `${miner} $`
     //append таблицы в блок + вторая линия в таблицу
     tableWorkersTwo.append(tableTrThree__TableWorkTwo)
     tableTrThree__TableWorkTwo.append(tableTdThreeleft__TableWorkTwo, tableTdThreeright__TableWorkTwo)
@@ -159,8 +159,8 @@ export function clearMainBlockTwo(){
     tableTdFourleft__TableWorkTwo.setAttribute("class", "tdElements tdButton TntMan")
     tableTdFourleft__TableWorkTwo.textContent = "Тротильщик +2480  ‎ ‎ ‌‎ ‎ ‎"
     let tableTdFourright__TableWorkTwo = document.createElement("td")
-    tableTdFourright__TableWorkTwo.setAttribute("class","tdElements")
-    tableTdFourright__TableWorkTwo.textContent = "60999 $"
+    tableTdFourright__TableWorkTwo.setAttribute("class","tdElements tdPriceSix")
+    tableTdFourright__TableWorkTwo.textContent = `${tntMan} $`
     // append таблицы в блок + вторая линия в таблицу
     tableWorkersTwo.append(tableTrFour__TableWorkTwo)
     tableTrFour__TableWorkTwo.append(tableTdFourleft__TableWorkTwo, tableTdFourright__TableWorkTwo)
@@ -194,7 +194,10 @@ export function clearMainBlockTwo(){
     tableTd__Three__left.addEventListener("click", () => buyUpgradeWorkGuys(2))
     // Третья кнопка TSP
     tableTd__Four__left.addEventListener("click", () => buyUpgradeWorkGuys(3))
+    // Кузнец
     tableTdTwoleft__TableWorkTwo.addEventListener("click", () => buyUpgradeWorkGuys(4))
+    // Шахтер
     tableTdThreeleft__TableWorkTwo.addEventListener("click", () => buyUpgradeWorkGuys(5))
+    // Тротильщик
     tableTdFourleft__TableWorkTwo.addEventListener("click", () => buyUpgradeWorkGuys(6))
 }

@@ -1,8 +1,11 @@
 import {abbreviateNumber, abbreviateScoreBoard, abbreviatePowerClick, abbreviatePriceFirst, abbreviatePriceTwo, abbreviatePriceThree} from './remakeAbbrev.js'
 // Импортировали функции которые сокращают значения наших чисел
+//! Проверка local stor
+let MoneyValueLocalStorage = JSON.parse(localStorage.getItem("MoneyValue"))
+let ExperienceLocalStorage = JSON.parse(localStorage.getItem("Experience"))
 
-let MoneyValue = 100000; // Наши стартовые деньги
-let Experience = 0; // Наш опыт заработанный
+let MoneyValue = MoneyValueLocalStorage; // Наши стартовые деньги
+let Experience = ExperienceLocalStorage; // Наш опыт заработанный
 let PowerClick = 1; // Сила нашего клика
 let PowerWorksGuys = 0 // Сила наших работяг
 
@@ -20,14 +23,17 @@ let PriceWorkGuysFour = 1999;
 let PriceWorkGuysFive = 10999;
 let PriceWorkGuysSix =  60999;
 
+
+
+
 // Функция обновления таблицы счета и денег
 export function updateTableMoneyExperience()  {
         Experience ++
         MoneyValue += PowerClick
-    
+
         // Получаем TD элементы для их махинаций
         let updateTableMoney = document.querySelector(".MoneyTd")
-        let updateTableExperience= document.querySelector(".ExperienceTd")
+        let updateTableExperience = document.querySelector(".ExperienceTd")
     
         // Прибавляем деньги
         updateTableMoney == MoneyValue
@@ -37,6 +43,7 @@ export function updateTableMoneyExperience()  {
         updateTableExperience == Experience
         // updateTableExperience.textContent = abbreviateScoreBoard(Experience)
         updateTableExperience.textContent = abbreviateScoreBoard(Experience)
+ 
     }
 // Функция реализации магазина
 // Функция увеливает значение на +1
@@ -104,55 +111,79 @@ export function buyUpgradeClickLvlOneHundred(){
         liPriceFirst.textContent  = `Цена: ${abbreviatePriceThree(PriceClick__lvlThree) + "$"}`
     }
 }
-// Написать функцию обновление таблицы рабочих
+// Функция обновления таблицы рабочих
 export function buyUpgradeWorkGuys(target){
-    // let buttonNegritenok = document.querySelector(".negritenok")
-    // let buttonRaznorabochiy = document.querySelector(".Raznorabochiy")
-    // let buttonTSP = document.querySelector(".Tsp")
-    // let buttonKuznec = document.querySelector(".Kuznec")
-    // let buttonMiner = document.querySelector(".Miner")
-    // let buttonTntMan = document.querySelector("TntMan")
-    
-    if(target == 1) { // Негритенок
+    // Получаем сначало цены рабочих для их увелечения цены!
+    // let priceFirst = document.querySelector(".")
+    // let priceTwo = document.querySelector(".")
+    // let priceThree = document.querySelector(".")
+    // let priceFour = document.querySelector(".")
+    // let priceFive = document.querySelector(".")
+    // let priceSix = document.querySelector(".")
+
+    if(target == 1) { // Негритенок 50 
         if(MoneyValue >= PriceWorkGuysFirst && MoneyValue > 0) {
             MoneyValue -= PriceWorkGuysFirst
             PowerWorksGuys++
+            // Увелечение цены рабочего 
+            PriceWorkGuysFirst += (15 + PowerWorksGuys) 
+            let priceFirst = document.querySelector(".tdPriceFirst")
+            priceFirst.textContent = `${PriceWorkGuysFirst} $`
         }
-        
     }
-    if (target == 2){ // Разнорабочий
+    if (target == 2){ // Разнорабочий 120
         if(MoneyValue >= PriceWorkGuysTwo && MoneyValue > 0) {
             MoneyValue -= PriceWorkGuysTwo
             PowerWorksGuys += 3
+            // Увелечение цены рабочего
+            PriceWorkGuysTwo += (30 + PowerWorksGuys) 
+            let priceTwo = document.querySelector(".tdPriceTwo")
+            priceTwo.textContent = `${PriceWorkGuysTwo} $`
         }
     }
-    if (target == 3){ // TSPша
+    if (target == 3){ // TSPша 420
         if(MoneyValue >= PriceWorkGuysThree && MoneyValue > 0) {
             MoneyValue -= PriceWorkGuysThree
             PowerWorksGuys += 12
+            // Увелечение цены рабочего
+            PriceWorkGuysThree += (110 + PowerWorksGuys) 
+            let priceThree = document.querySelector(".tdPriceThree")
+            priceThree.textContent = `${PriceWorkGuysThree} $`
         }
     }
-    if (target == 4){ // Кузнец 
+    if (target == 4){ // Кузнец  1999
         if(MoneyValue >= PriceWorkGuysFour && MoneyValue > 0) {
             MoneyValue -= PriceWorkGuysFour
             PowerWorksGuys += 70
+            // Увелечение цены рабочего
+            PriceWorkGuysFour += (698 + PowerWorksGuys) 
+            let priceFour = document.querySelector(".tdPriceFour")
+            priceFour.textContent = `${PriceWorkGuysFour} $`
         }
     }
-    if (target == 5){ // Шахтер
+    if (target == 5){ // Шахтер 10999
         if(MoneyValue >= PriceWorkGuysFive && MoneyValue > 0) {
             MoneyValue -= PriceWorkGuysFive
             PowerWorksGuys += 390
+            // Увелечение цены рабочего
+            PriceWorkGuysFive += (4498 + PowerWorksGuys) 
+            let priceFive = document.querySelector(".tdPriceFive")
+            priceFive.textContent = `${PriceWorkGuysFive} $`
         }
     }
-    if (target == 6){ // Подрывник (Тротильщик)
+    if (target == 6){ // Подрывник (Тротильщик) 60999
         if(MoneyValue >= PriceWorkGuysSix && MoneyValue > 0) {
             MoneyValue -= PriceWorkGuysSix
             PowerWorksGuys += 2480
+            // Увелечение цены рабочего
+            PriceWorkGuysSix += (20498 + PowerWorksGuys) 
+            let priceSix = document.querySelector(".tdPriceSix")
+            priceSix.textContent = `${PriceWorkGuysSix} $`
         }
     }
     // Обновление денег
     let tableMoneyTd = document.querySelector(".MoneyTd")
-    tableMoneyTd.textContent = MoneyValue
+    tableMoneyTd.textContent = abbreviateNumber(MoneyValue) 
 
     //Получение таблицы
     let tableWorkGuys = document.querySelector(".PowerWorkguys")
@@ -175,10 +206,19 @@ export function generateAutoMoneyWorkGuys(){
         autoMoneyInterval = setInterval(function() {
             MoneyValue += PowerWorksGuys;
             tableWorkGuys.textContent = PowerWorksGuys;
-            tableMoneyTd.textContent = MoneyValue;
-            // localStorage.setItem('Money', MoneyValue);
+            tableMoneyTd.textContent = abbreviateNumber(MoneyValue);
         }, 2000);
         }
         
         
 }
+
+
+  //! Обновление local storage
+  document.body.onclick = () => { 
+    localStorage.setItem("MoneyValue", JSON.stringify(MoneyValue)); 
+    localStorage.setItem("Experience", JSON.stringify(Experience));
+}
+
+
+
